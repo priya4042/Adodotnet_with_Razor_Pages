@@ -1,0 +1,38 @@
+﻿@model WebApplication1_MVC_Country_State_City_Register3.Models.Register
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 class="text-center text-info">User Details</h2>
+<br />
+<br />
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Email</th>
+            <th>Gender</th>
+            <th>Subscribe</th>
+            <th>Country</th>
+            <th>State</th>
+            <th>City</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.Name</td>
+            <td>@Model.Address</td>
+            <td>@Model.Email</td>
+            <td>@Model.Gender</td>
+            <td>@Model.Suscribe</td>
+            <td>@Model.City.State.Country.Name</td>
+            <td>@Model.City.State.Name</td>
+            <td>@Model.City.Name</td>
+        </tr>
+    </tbody>
+</table>
+@Html.ActionLink("Edit User", "Edit","Register", new {id=Model.Id},new {@class="btn btn-info" }) 
+
+@Html.ActionLink("Back to List", "Register","Index",new {@class="btn btn-primary" })
+

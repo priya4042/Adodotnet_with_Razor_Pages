@@ -1,0 +1,14 @@
+﻿@model WebApplication1_Mvc_Upsert_Save.Models.Employee
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 class="text-info text-center">Details</h2>
+<div>
+    <b>Name:</b>@Model.Name<br />
+    <b>Address:</b>@Model.Address<br />
+    <b>Salary:</b>@Model.Salary<br />
+    @Html.ActionLink("Edit","Upsert",new {id=Model.Id })
+    @Html.ActionLink("Back to List","Index")
+</div>
+

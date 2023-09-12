@@ -1,0 +1,57 @@
+﻿@model IEnumerable<WebApplication1_MVC_Cntr_city_sta.Models.Register>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="text-center text-info">Register New User</h2>
+
+@Html.ActionLink("Create New User","Create","Register",new {@class="btn btn-info" })
+
+@if(!Model.Any())
+            {
+                <p class="text-primary">No Data Found</p>
+            }
+            else
+            {
+                <table class="table table-bordered table-striped table-hover" >
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Email</th>
+                            <th>Gender</th>
+                            <th>Subscribe</th>
+                            <th>Country</th>
+                            <th>State</th>
+                            <th>City</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            using (Html.BeginForm("Delete", "Register",new {id=item.Id }))
+                            {
+                                <tr>
+                                    <td>@item.Name</td>
+                                    <td>@item.Address</td>
+                                    <td>@item.Email</td>
+                                    <td>@item.Gender</td>
+                                    <td>@item.Subscribe</td>
+                                    <td>@item.City.State.Country.Name</td>
+                                    <td>@item.City.State.Name</td>
+                                    <td>@item.City.Name</td>
+                                    <td>
+                                        @Html.ActionLink("Edit", "Edit",  new {id=item.Id })
+                                        @Html.ActionLink("Details", "Details",  new { id=item.Id})
+                                        <input type="submit" value="Delete" class="btn btn-info" onclick="return confirm('Want To Delete the data?')">
+                                    </td>
+                                </tr>
+                            }
+
+
+                        }
+                    </tbody>
+                </table>
+            }
+

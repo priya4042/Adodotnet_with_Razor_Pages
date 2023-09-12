@@ -1,0 +1,40 @@
+﻿@model WebApplication1_MVC__ctry_cpuny.Models.Register
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 class="text-center text-info">Detail</h2>
+
+
+<div>
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Email</th>
+            <th>Gender</th>
+            <th>Subscribe</th>
+            <th>Country</th>
+            <th>State</th>
+            <th>City</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        
+            <tr>
+                <td>@Model.Name</td>
+                <td>@Model.Address</td>
+                <td>@Model.Email</td>
+                <td>@Model.gender</td>
+                <td>@Model.Subscribe</td>
+                <td>@Model.City.State.country.Name</td>
+                <td>@Model.City.State.Name</td>
+                <td>@Model.City.Name</td>
+               
+            </tr>
+        
+    </tbody>
+</table>
+        </div>   

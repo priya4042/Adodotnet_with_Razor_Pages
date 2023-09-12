@@ -1,0 +1,50 @@
+﻿@model IEnumerable<WebApplication1_MVC_Cnt_CITY_RES.Models.Register>
+@{
+    ViewBag.Title = "Index";
+}
+
+@Html.ActionLink("Create", "Create", "Register", new { @new = "btn btn-info" })
+
+<h2 class="text-center text-info">Register</h2>
+
+@if (!Model.Any())
+{
+    <p class="text-info">No Data Found </p>
+}
+else
+{
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Email</th>
+                <th>Gender</th>
+                <th>Subscribe</th>
+                <th>Country</th>
+                <th>State</th>
+                <th>City</th>
+                <th>ActionKD</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Address</td>
+                    <td>@item.Email</td>
+                    <td>@item.Gender</td>
+                    <td>@item.Subscribe</td>
+                    <td>@item.City.State.Country</td>
+                    <td>@item.City.State</td>
+                    <td>@item.City</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}
+
+
+

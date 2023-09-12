@@ -1,0 +1,97 @@
+﻿@model WebApplication1_MVC_Country_State_City_Register3.Models.Register
+@{
+    ViewBag.Title = "create";
+}
+
+<h2 class="text-center text-warning">Register New User</h2>
+<br />
+<br />
+@using (Html.BeginForm(new {@class="background-color=white" }))
+{
+    <div class="container row table-bordered">
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Name)
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Address)
+            @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email)
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Gender, new { @class = "col-lg-10" })
+            <div class="col-lg-10">
+                <div class="radio">
+                    <label>
+                        @Html.RadioButtonFor(m => m.Gender, 1)
+                        Male
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        @Html.RadioButtonFor(m => m.Gender, 2)
+                        Female
+                    </label>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            @*<label for="inputPassword" class="col-lg-2 control-label">Password</label>*@
+            <div class="col-lg-10">
+                @Html.CheckBoxFor(m => m.Suscribe)
+
+                Is Subscribe?
+
+            </div>
+        </div>
+
+
+        <div class="form-group">
+
+            @Html.LabelFor(m => m.CountryId, new { @class = "col-lg-10" })
+            @Html.DropDownListFor(m => m.CountryId, new SelectList(ViewBag.CountryList, "Id", "Name"), "Select Country", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.CountryId, "", new { @class = "text-danger" })
+        </div>
+
+       <div>
+           @Html.LabelFor(m=>m.StateId)
+           @Html.DropDownListFor(m=>m.StateId,new SelectList(ViewBag.StateList,"Id","Name"),"Select State", new {@class="form-control" })
+           @Html.ValidationMessageFor(m => m.StateId, "", new {@class="text-danger" })
+       </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.CityId)
+            @Html.DropDownListFor(m => m.CityId, new SelectList(ViewBag.CityList, "Id", "Name"), "Select City", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.CityId, "", new { @class = "text-danger" })
+
+        </div>
+        <div>
+            <input type="submit" value="Register" class="btn btn-primary" />
+        </div>
+
+
+
+    </div>
+
+
+}
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+

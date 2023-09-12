@@ -1,0 +1,17 @@
+﻿@model WebApplication1_MVC_Cntr_city_sta.Models.Register
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 class="text-center text-info">Details</h2>
+
+<div class="table table-bordered table-hover table-striped">
+    <b>Name</b>@Model.Name<br />
+    <b>Address</b>@Model.Address<br />
+    <b>Email</b>@Model.Email<br />
+    <b>Gender</b>@Model.Gender<br />
+    <b>Subscribe</b>@Model.Subscribe<br />
+    <b>Country</b>@Model.City.State.Country.Name<br />
+    <b>States</b>@Model.City.State.Name<br />
+    <b>City</b>@Model.City.Name<br />
+</div>
